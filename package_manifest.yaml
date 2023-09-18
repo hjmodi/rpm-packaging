@@ -1,0 +1,51 @@
+---
+packages:
+  vars:
+    build_package_koji_command: brew
+    build_package_build_system: koji
+    build_package_waitrepo: false
+    diff_package_skip: false
+    diff_package_koji_command: brew
+    releasers:
+      - dist-git-rhel-8
+    diff_package_tags:
+      - eng-rhel-8-candidate
+  children:
+    pulpcore: {}
+
+pulpcore:
+  hosts:
+    python3-aiocontextvars: {}
+    python3-backoff: {}
+    python3-certifi: {}
+    python3-charset_normalizer: {}
+    python3-contextvars: {}
+    python3-dataclasses: {}
+    python3-Deprecated: {}
+    python3-googleapis_common_protos: {}
+    python3-grpcio: {}
+    python3-idna: {}
+    python3-immutables: {}
+    python3-importlib_metadata: {}
+    python3-jinja2: {}
+    python3-markupsafe: {}
+    python3-opentelemetry_api: {}
+    python3-opentelemetry_exporter_otlp: {}
+    python3-opentelemetry_exporter_otlp_proto_grpc: {}
+    python3-opentelemetry_exporter_otlp_proto_http: {}
+    python3-opentelemetry_instrumentation: {}
+    python3-opentelemetry_instrumentation_requests: {}
+    python3-opentelemetry_proto: {}
+    python3-opentelemetry_sdk: {}
+    python3-opentelemetry_semantic_conventions: {}
+    python3-opentelemetry_util_http: {}
+    python3-otel_extensions: {}
+    python3-protobuf: {}
+    python3-pydantic: {}
+    python3-requests: {}
+    python3-six: {}
+    python3-typing_extensions: {}
+    python3-urllib3: {}
+    python3-wrapt: {}
+    python3-zip: {}
+

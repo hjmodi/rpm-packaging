@@ -1,0 +1,18 @@
+# vim: ts=2:sw=2:et
+#
+# Please keep blacklist/whitelist sorted
+#
+
+[buildconfig]
+builder = git_annex_spec_builder.GitAnnexSpecBuilder
+tagger = tito.tagger.ReleaseTagger
+lib_dir = rel-eng/lib/
+
+[builder]
+fetch_strategy = foreman_source_strategy.ForemanSourceStrategy
+
+[requirements]
+tito=0.6.1
+
+[eng-rhel-8-candidate]
+disttag=.el8eng
