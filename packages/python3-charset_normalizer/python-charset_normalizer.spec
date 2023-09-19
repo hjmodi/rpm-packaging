@@ -2,7 +2,7 @@
 %global pypi_name charset-normalizer
 %global pypi_version 2.0.12
 
-Name:           python-%{pypi_name}
+Name:           python%{python3_pkgversion}-%{pypi_name}
 Version:        %{pypi_version}
 Release:        1%{?dist}
 Summary:        The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet
@@ -12,30 +12,22 @@ URL:            https://github.com/ousret/charset_normalizer
 Source0:        %{pypi_source}
 BuildArch:      noarch
 
-BuildRequires:  python3-devel
-BuildRequires:  python3dist(setuptools)
-BuildRequires:  python3dist(unicodedata2)
-BuildRequires:  python3dist(sphinx)
+BuildRequires:  python%{python3_pkgversion}-devel
+BuildRequires:  python%{python3_pkgversion}-setuptools
+BuildRequires:  python%{python3_pkgversion}-unicodedata2
+BuildRequires:  python%{python3_pkgversion}-sphinx
 
 %description
 <h1 align"center">Charset Detection, for Everyone 👋 <a href" src"
 align"center"> <sup>The Real First Universal Charset Detector</sup><br> <a
 href" <img src" /> <a href"
 
-%package -n     python3-%{pypi_name}
-Summary:        %{summary}
-%{?python_provide:%python_provide python3-%{pypi_name}}
+Requires:       python%{python3_pkgversion}-setuptools
+Requires:       python%{python3_pkgversion}-unicodedata2
 
-Requires:       python3dist(setuptools)
-Requires:       python3dist(unicodedata2)
-%description -n python3-%{pypi_name}
-<h1 align"center">Charset Detection, for Everyone 👋 <a href" src"
-align"center"> <sup>The Real First Universal Charset Detector</sup><br> <a
-href" <img src" /> <a href"
-
-%package -n python-%{pypi_name}-doc
+%package -n python%{python3_pkgversion}-%{pypi_name}-doc
 Summary:        charset-normalizer documentation
-%description -n python-%{pypi_name}-doc
+%description -n python%{python3_pkgversion}-%{pypi_name}-doc
 Documentation for charset-normalizer
 
 %prep
@@ -56,14 +48,14 @@ rm -rf html/.{doctrees,buildinfo}
 %check
 %{__python3} setup.py test
 
-%files -n python3-%{pypi_name}
+%files
 %license LICENSE
 %doc README.md
 %{_bindir}/normalizer
 %{python3_sitelib}/charset_normalizer
 %{python3_sitelib}/charset_normalizer-%{pypi_version}-py%{python3_version}.egg-info
 
-%files -n python-%{pypi_name}-doc
+%files -n python%{python3_pkgversion}-%{pypi_name}-doc
 %doc html
 %license LICENSE
 

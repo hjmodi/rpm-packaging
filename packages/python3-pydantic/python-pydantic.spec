@@ -2,7 +2,7 @@
 %global pypi_name pydantic
 %global pypi_version 1.9.2
 
-Name:           python-%{pypi_name}
+Name:           python%{python3_pkgversion}-%{pypi_name}
 Version:        %{pypi_version}
 Release:        1%{?dist}
 Summary:        Data validation and settings management using python type hints
@@ -12,28 +12,21 @@ URL:            https://github.com/samuelcolvin/pydantic
 Source0:        %{pypi_source}
 BuildArch:      noarch
 
-BuildRequires:  python3-devel
-BuildRequires:  python3dist(dataclasses) >= 0.6
-BuildRequires:  python3dist(email-validator) >= 1.0.3
-BuildRequires:  python3dist(python-dotenv) >= 0.10.4
-BuildRequires:  python3dist(setuptools)
-BuildRequires:  python3dist(typing-extensions) >= 3.7.4.3
+BuildRequires:  python%{python3_pkgversion}-devel
+BuildRequires:  python%{python3_pkgversion}-dataclasses >= 0.6
+BuildRequires:  python%{python3_pkgversion}-email-validator >= 1.0.3
+BuildRequires:  python%{python3_pkgversion}-python-dotenv >= 0.10.4
+BuildRequires:  python%{python3_pkgversion}-setuptools
+BuildRequires:  python%{python3_pkgversion}-typing-extensions >= 3.7.4.3
 
 %description
  pydantic[![CI]( [![Coverage]( [![pypi]( [![CondaForge]( [![downloads](
 
-%package -n     python3-%{pypi_name}
-Summary:        %{summary}
-%{?python_provide:%python_provide python3-%{pypi_name}}
-
-Requires:       python3dist(dataclasses) >= 0.6
-Requires:       python3dist(email-validator) >= 1.0.3
-Requires:       python3dist(python-dotenv) >= 0.10.4
-Requires:       python3dist(setuptools)
-Requires:       python3dist(typing-extensions) >= 3.7.4.3
-%description -n python3-%{pypi_name}
- pydantic[![CI]( [![Coverage]( [![pypi]( [![CondaForge]( [![downloads](
-
+Requires:       python%{python3_pkgversion}-dataclasses >= 0.6
+Requires:       python%{python3_pkgversion}-email-validator >= 1.0.3
+Requires:       python%{python3_pkgversion}-python-dotenv >= 0.10.4
+Requires:       python%{python3_pkgversion}-setuptools
+Requires:       python%{python3_pkgversion}-typing-extensions >= 3.7.4.3
 
 %prep
 %autosetup -n %{pypi_name}-%{pypi_version}
@@ -49,7 +42,7 @@ rm -rf %{pypi_name}.egg-info
 %check
 %{__python3} setup.py test
 
-%files -n python3-%{pypi_name}
+%files
 %license LICENSE
 %doc README.md
 %{python3_sitelib}/%{pypi_name}
