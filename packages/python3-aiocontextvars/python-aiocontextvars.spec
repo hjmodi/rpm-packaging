@@ -27,17 +27,7 @@ experimentally provides the missing asyncio support for the contextvars
 backport library. Please read more in Python 3.7 contextvars documentation <
 Compatibility
 
-%package -n     python3-%{pypi_name}
-Summary:        %{summary}
-%{?python_provide:%python_provide python3-%{pypi_name}}
-
 Requires:       python%{python3_pkgversion}-contextvars = 2.4
-%description -n python3-%{pypi_name}
- aiocontextvars **IMPORTANT:** This package will be deprecated after
-contextvars asyncio backport_ is fixed. Before then, this library
-experimentally provides the missing asyncio support for the contextvars
-backport library. Please read more in Python 3.7 contextvars documentation <
-Compatibility
 
 %package -n python%{python3_pkgversion}-%{pypi_name}-doc
 Summary:        aiocontextvars documentation
@@ -62,7 +52,7 @@ rm -rf html/.{doctrees,buildinfo}
 %check
 %{__python3} setup.py test
 
-%files -n python3-%{pypi_name}
+%files
 %license LICENSE
 %doc docs/readme.rst README.rst
 %{python3_sitelib}/__pycache__/*
