@@ -15,4 +15,8 @@ packages:
 
 pulpcore:
   hosts:
-    
+    osbs-client: {}
+    koji: {}
+    koji-containerbuild: {}
+    python3-opentelemetry_instrumentation_requests: {}
+    python3-otel_extensions: {}
